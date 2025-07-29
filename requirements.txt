@@ -1,0 +1,16 @@
+argparse
+arrow
+chardet
+datetime
+inforcehub
+json5
+logging
+pandas
+pymysql
+pytz
+pyzoom
+requests
+sqlalchemy
+tzlocal
+zoom-client==0.0.3
+zoomus
