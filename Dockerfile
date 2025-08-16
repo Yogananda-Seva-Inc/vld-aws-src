@@ -9,6 +9,7 @@ COPY user_functions.py ${LAMBDA_TASK_ROOT}
 COPY utility_functions.py ${LAMBDA_TASK_ROOT}
 COPY zoom_download.py ${LAMBDA_TASK_ROOT}
 COPY config.json ${LAMBDA_TASK_ROOT}
+COPY fact_uuid_master.csv ${LAMBDA_TASK_ROOT}
 
 ENTRYPOINT [ "/bin/bash" ]
 #ENTRYPOINT [ "python3", "zoom_download.py", "run" ]
