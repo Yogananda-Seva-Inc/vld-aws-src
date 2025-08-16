@@ -2,5 +2,10 @@
 "root_request_url":"https://api.zoom.us/v2/",
 "api_key":"vqnbcob8TNyyqU3mciyMPQ",
 "api_secret":"nLB3CojR37rjLAL0nwLFWp6mJYli55th5pNZ",
-"data_type":"JSON"
+"data_type":"JSON",
+"dbhost": "yso-analytics-myql8.ctrcmgpc1ner.us-east-2.rds.amazonaws.com",
+"dbport": "3306",
+"db": "yso_analytics_db",
+"dbuser": "ashwath",
+"dbpassword": "Yso@2021"
 }

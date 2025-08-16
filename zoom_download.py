@@ -67,11 +67,16 @@ if __name__ == "__main__":
         './zoom_etl/'+date_time+'/fact_uuid_last_28_days_'+date_time+'.csv', index=False)
 
     # Get Meeting IDs from SharePoint SQL table
-    conf = {'host': "yso-analytics-myql8.ctrcmgpc1ner.us-east-2.rds.amazonaws.com",
-            'port': '3306',
-            'database': "yso_analytics_db",
-            'user': "ashwath",
-            'password': quote_plus("Yso@2021")}
+    # conf = {'host': "yso-analytics-myql8.ctrcmgpc1ner.us-east-2.rds.amazonaws.com",
+    #         'port': '3306',
+    #         'database': "yso_analytics_db",
+    #         'user': "ashwath",
+    #         'password': quote_plus("Yso@2021")}
+    conf = {'host': config_data['dbhost'],
+            'port': config_data['dbport'],
+            'database': config_data['db'],
+            'user': config_data['dbuser'],
+            'password': quote_plus(config_data['dbpassword'])}
     engine_uri = "mysql+pymysql://{user}:{password}@{host}:{port}/{database}".format(
         **conf)
     connection = create_engine(engine_uri)
