@@ -12,8 +12,8 @@ COPY s3_upload.py ${LAMBDA_TASK_ROOT}
 COPY config.json ${LAMBDA_TASK_ROOT}
 COPY fact_uuid_master.csv ${LAMBDA_TASK_ROOT}
 
-ENTRYPOINT [ "/bin/bash" ]
-#ENTRYPOINT [ "python3", "zoom_download.py", "run" ]
+#ENTRYPOINT [ "/bin/bash" ]
+ENTRYPOINT [ "python3", "zoom_download.py", "run" ]
 
 # # Update installed packages and install Apache
 # RUN yum update -y && \

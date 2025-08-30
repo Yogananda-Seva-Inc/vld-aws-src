@@ -14,3 +14,4 @@ sqlalchemy
 tzlocal
 zoom-client==0.0.3
 zoomus
+boto3
