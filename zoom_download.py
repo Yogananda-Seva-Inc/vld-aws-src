@@ -89,11 +89,10 @@ if __name__ == "__main__":
                          '/fact_uuid_new_filter_meeting_ids_'+date_time+'.csv', index=False)
     
     # load master fact UUID file
-    # fact_uuid_old = pd.read_csv('fact_uuid_master.csv', index_col=False)
     bucket = 'omc-data'
     s3_prefix = 'OMC_Services/Production_FU/fact_uuid_master'
     client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                          aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
+                         aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
     get_last_modified = lambda obj: int(obj['LastModified'].strftime('%s'))
     objs = client.list_objects_v2(Bucket=bucket, Prefix=s3_prefix)['Contents']
     fact_uuid_master_s3 = [obj['Key'] for obj in sorted(objs, key=get_last_modified)][0]
@@ -101,6 +100,7 @@ if __name__ == "__main__":
     
     print('Fact UUID master:', fact_uuid_master_s3)
     fact_uuid_old = pd.read_csv(obj['Body'], index_col=False) 
+    #fact_uuid_old = pd.read_csv('fact_uuid_master.csv', index_col=False)
     
     print('fact_uuid_old shape: ', fact_uuid_old.shape)
     # merge new and old fact uuid files and filter on _merge = Left_only to keep only the new uuids (latest extract's uuids)
@@ -123,7 +123,9 @@ if __name__ == "__main__":
           new_only_fact_uuid.shape, new_only_fact_uuid.columns)
     #new_only_fact_uuid = new_only_fact_uuid.iloc[:, [
     #    0, 1, 2, 3, 5, 7, 8, 9, 10]]
+    # remove duplicates and select columns
     cols = ['uuid', 'id', 'topic', 'user_name', 'user_email', 'start_time', 'end_time', 'duration', 'participants_count']
+    new_only_fact_uuid = new_only_fact_uuid.loc[:,~new_only_fact_uuid.columns.duplicated()].copy()
     new_only_fact_uuid = new_only_fact_uuid[cols]
     
     # print('df_uuid_new_only share and columns:', df_uuid_new_only.shape, df_uuid_new_only.columns)
