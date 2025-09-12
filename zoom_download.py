@@ -95,13 +95,13 @@ if __name__ == "__main__":
                          aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
     get_last_modified = lambda obj: int(obj['LastModified'].strftime('%s'))
     objs = client.list_objects_v2(Bucket=bucket, Prefix=s3_prefix)['Contents']
-    fact_uuid_master_s3 = [obj['Key'] for obj in sorted(objs, key=get_last_modified)][0]
+    fact_uuid_master_s3 = [obj['Key'] for obj in sorted(objs, key=get_last_modified, reverse=True)][0]
     obj = client.get_object(Bucket= bucket, Key= fact_uuid_master_s3) 
     
     print('Fact UUID master:', fact_uuid_master_s3)
     fact_uuid_old = pd.read_csv(obj['Body'], index_col=False) 
     #fact_uuid_old = pd.read_csv('fact_uuid_master.csv', index_col=False)
-    
+
     print('fact_uuid_old shape: ', fact_uuid_old.shape)
     # merge new and old fact uuid files and filter on _merge = Left_only to keep only the new uuids (latest extract's uuids)
     new_old_fact_uuid = fact_uuid_new.merge(
