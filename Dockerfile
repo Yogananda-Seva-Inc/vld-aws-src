@@ -13,7 +13,7 @@ COPY config.json ${LAMBDA_TASK_ROOT}
 COPY fact_uuid_master.csv ${LAMBDA_TASK_ROOT}
 
 #ENTRYPOINT [ "/bin/bash" ]
-ENTRYPOINT [ "python3", "zoom_download.py", "run" ]
+ENTRYPOINT [ "python3", "run_all.py", "run" ]
 
 # # Update installed packages and install Apache
 # RUN yum update -y && \
