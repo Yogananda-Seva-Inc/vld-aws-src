@@ -9,8 +9,13 @@ COPY user_functions.py ${LAMBDA_TASK_ROOT}
 COPY utility_functions.py ${LAMBDA_TASK_ROOT}
 COPY zoom_download.py ${LAMBDA_TASK_ROOT}
 COPY s3_upload.py ${LAMBDA_TASK_ROOT}
+COPY s3_upload_fact_conn.py ${LAMBDA_TASK_ROOT}
+COPY s3_upload_fact_uuid.py ${LAMBDA_TASK_ROOT}
+COPY s3_upload_staging_fact_conn.py ${LAMBDA_TASK_ROOT}
+COPY s3_upload_staging_fact_uuid.py ${LAMBDA_TASK_ROOT}
 COPY config.json ${LAMBDA_TASK_ROOT}
 COPY fact_uuid_master.csv ${LAMBDA_TASK_ROOT}
+COPY run_all.py ${LAMBDA_TASK_ROOT}
 
 #ENTRYPOINT [ "/bin/bash" ]
 ENTRYPOINT [ "python3", "run_all.py", "run" ]
