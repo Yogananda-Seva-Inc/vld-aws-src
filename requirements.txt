@@ -10,6 +10,7 @@ pymysql
 pytz
 pyzoom
 requests
+setuptools
 sqlalchemy
 tzlocal
 zoom-client==0.0.3

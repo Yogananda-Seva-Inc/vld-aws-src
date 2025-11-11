@@ -1,5 +1,5 @@
-FROM public.ecr.aws/lambda/python:3.13
-#FROM public.ecr.aws/amazonlinux/amazonlinux:latest
+FROM public.ecr.aws/lambda/python:latest
+##FROM public.ecr.aws/amazonlinux/amazonlinux:latest
 
 COPY requirements.txt ${LAMBDA_TASK_ROOT}
 
