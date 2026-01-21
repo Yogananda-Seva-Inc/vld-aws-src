@@ -15,4 +15,6 @@ sqlalchemy
 tzlocal
 zoom-client==0.0.3
 zoomus
+botocore
 boto3
+awscli

@@ -12,8 +12,9 @@ local_directory = 'Staging_Fact_UUID'
 bucket = 'omc-data'
 destination = 'OMC_Services_Migration/Staging_FU'
 
-client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
-                          aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
+# client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+#                           aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
+client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'))
 
 response = client.list_objects_v2(Bucket=bucket, Prefix=destination)
 
