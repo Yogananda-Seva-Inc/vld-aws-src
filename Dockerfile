@@ -13,6 +13,11 @@ COPY s3_upload_fact_conn.py ${LAMBDA_TASK_ROOT}
 COPY s3_upload_fact_uuid.py ${LAMBDA_TASK_ROOT}
 COPY s3_upload_staging_fact_conn.py ${LAMBDA_TASK_ROOT}
 COPY s3_upload_staging_fact_uuid.py ${LAMBDA_TASK_ROOT}
+COPY prod_s3_to_rds_factconnection_glue.py ${LAMBDA_TASK_ROOT}
+COPY prod_s3_to_rds_factuuid_glue.py  ${LAMBDA_TASK_ROOT}
+COPY prod_rds_to_rds_factuuid_glue.py  ${LAMBDA_TASK_ROOT}
+COPY prod_rds_to_rds_factconnection_glue.py  ${LAMBDA_TASK_ROOT}
+COPY SNSPublish.py ${LAMBDA_TASK_ROOT}
 COPY config.json ${LAMBDA_TASK_ROOT}
 COPY fact_uuid_master.csv ${LAMBDA_TASK_ROOT}
 COPY run_all.py ${LAMBDA_TASK_ROOT}

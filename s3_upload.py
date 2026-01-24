@@ -9,7 +9,8 @@ import boto3
 
 local_directory = 'zoom_etl'
 bucket = 'omc-data'
-destination = 'OMC_Services_Migration/Development_QA'
+#destination = 'OMC_Services_Migration/Development_QA'
+destination = 'OMC_Services/Development_QA'
 
 #client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
 #                          aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))

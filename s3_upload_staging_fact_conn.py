@@ -10,7 +10,8 @@ import shutil
 
 local_directory = 'Staging_Fact_Connections'
 bucket = 'omc-data'
-destination = 'OMC_Services_Migration/Staging_FC'
+#destination = 'OMC_Services_Migration/Staging_FC'
+destination = 'OMC_Services/Staging_FC'
 
 #client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
 #                          aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))

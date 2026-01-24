@@ -90,7 +90,8 @@ if __name__ == "__main__":
     
     # load master fact UUID file
     bucket = 'omc-data'
-    s3_prefix = 'OMC_Services_Migration/Production_FU/fact_uuid_master'
+    #s3_prefix = 'OMC_Services_Migration/Production_FU/fact_uuid_master'
+    s3_prefix = 'OMC_Services/Production_FU/fact_uuid_master'
     # client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'), aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
     #                      aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'))
     client = boto3.client('s3', region_name=os.getenv('AWS_DEFAULT_REGION'))
